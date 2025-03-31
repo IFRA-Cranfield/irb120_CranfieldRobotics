@@ -1,0 +1,15 @@
+# ABB IRB120 - Cranfield University:
+
+Configurations:
+
+  - ID: "irb120cranfield_1"
+    Name: "ABB IRB-120 inside IALab enclosure."
+    urdf: "irb120cranfield_1.urdf.xacro"
+    rob: "irb120"
+    ee: "none"
+
+  - ID: "irb120cranfield_2"
+    Name: "ABB IRB-120 + Schunk EGP-64 Gripper inside IALab enclosure: Cube Pick-and-Place use-case"
+    urdf: "irb120cranfield_2.urdf.xacro"
+    rob: "irb120"
+    ee: "egp64"
