@@ -9,7 +9,13 @@ Configurations:
     ee: "none"
 
   - ID: "irb120cranfield_2"
-    Name: "ABB IRB-120 + Schunk EGP-64 Gripper inside IALab enclosure: Cube Pick-and-Place use-case"
+    Name: "ABB IRB-120 + Schunk EGP-64 Gripper inside IALab enclosure: Cube Pick-and-Place use-case."
     urdf: "irb120cranfield_2.urdf.xacro"
+    rob: "irb120"
+    ee: "egp64"
+
+  - ID: "irb120cranfield_3"
+    Name: "ABB IRB-120 + Schunk EGP-64 Gripper inside IALab enclosure: Cube Pose Estimation use-case."
+    urdf: "irb120cranfield_3.urdf.xacro"
     rob: "irb120"
     ee: "egp64"
