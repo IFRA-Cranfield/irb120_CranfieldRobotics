@@ -57,21 +57,21 @@ Once the environment has been launched, there are few operations that can be don
     ros2 topic echo /Robpose
     ```
 
-- Execute a Robot Program: The programs for the IRB120-Cranfield Robot are stored inside the irb120cranfield_execution ROS 2 Package. The following command is used to execute the programs (for more information, access this [link](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/ProgramExecution.md)):
+- Execute a Robot Program: The programs for the IRB120-Cranfield Robot are stored inside the irb120cranfield ROS 2 Package, /programs folder. The following command is used to execute the programs (for more information, access this [link](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/ProgramExecution.md)):
 
     ```sh
     # Example for the irb120_demo.yaml program:
-    ros2 run ros2srrc_execution ExecuteProgram.py package:=irb120cranfield_execution program:=irb120_demo
+    ros2 run ros2srrc_execution ExecuteProgram.py package:=irb120cranfield program:=irb120_demo
     ```
 
-- Spawn objects into the GzSim Environment: The CAD and URDF files of the objects that are manipulated in our IRB120-Cranfield Robot's use-cases are stored in the irb120cranfield_gazebo package. The objects can be spawned to the Simulation Environment using this command (more info [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/RobotOperation.md#extra-spawn-object-to-a-gazebo-environment)):
+- Spawn objects into the GzSim Environment: The CAD and URDF files of the objects that are manipulated in our IRB120-Cranfield Robot's use-cases are stored in the irb120cranfield package. The objects can be spawned to the Simulation Environment using this command (more info [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/RobotOperation.md#extra-spawn-object-to-a-gazebo-environment)):
 
     ```sh
     # Generic command:
     ros2 run ros2srrc_execution SpawnObject.py --package "{}" --urdf "{}.urdf" --name "{}" --x {} --y {} --z {}
 
     # Command to spawn the RED CUBE on top of the IRB120 enclosure:
-    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield_gazebo" --urdf "RedCube.urdf" --name "RedCube" --x 0.6 --y 0.55 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "RedCube.urdf" --name "RedCube" --x 0.6 --y 0.55 --z 0.95
     ```
 
     Once the object has been spawned to the simulation environment, its pose can be checked with the following command (for more information, please visit [IFRA-Cranfield/IFRA_ObjectPose](https://github.com/IFRA-Cranfield/IFRA_ObjectPose)):
@@ -117,7 +117,7 @@ Once the _Robot Bringup_ environment has been launched, the variety of tasks tha
 
     ```sh
     # Example for the irb120_demo.yaml program:
-    ros2 run ros2srrc_execution ExecuteProgram.py package:=irb120cranfield_execution program:=irb120_demo
+    ros2 run ros2srrc_execution ExecuteProgram.py package:=irb120cranfield program:=irb120_demo
     ```
 
 - Object Spawn feature is not available (this feature is only for Gazebo Simulation).
@@ -131,10 +131,10 @@ __Gazebo Simulation Environment__
 ros2 launch ros2srrc_launch moveit2.launch.py package:=irb120cranfield config:=irb120cranfield_2
 
 # 2. Spawn the cube (WhiteCube, RedCube, GreenCube, BlackCube or BlueCube) on top of the IRB120 enclosure:
-ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield_gazebo" --urdf "RedCube.urdf" --name "RedCube" --x 0.60 --y 0.70 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "RedCube.urdf" --name "RedCube" --x 0.60 --y 0.70 --z 0.95
 
 # 3. Execute the Cube Pick&Place Robot Program:
-ros2 run ros2srrc_execution ExecuteProgram.py package:=irb120cranfield_execution program:=CubePP_irb120_sim
+ros2 run ros2srrc_execution ExecuteProgram.py package:=irb120cranfield program:=CubePP_irb120_sim
 ```
 
 __Real ABB IRB-120 Robot__
@@ -146,7 +146,7 @@ ros2 launch ros2srrc_launch bringup_abb.launch.py package:=irb120cranfield confi
 # 2. Place any cube in the (x: 0.60, y: 0.70) position on top of the IRB120 enclosure.
 
 # 3. Execute the Cube Pick&Place Robot Program:
-ros2 run ros2srrc_execution ExecuteProgram.py package:=irb120cranfield_execution program:=CubePP_irb120
+ros2 run ros2srrc_execution ExecuteProgram.py package:=irb120cranfield program:=CubePP_irb120
 ```
 
 ### Object Pose Estimation using YOLO and OpenCV
@@ -186,10 +186,10 @@ Follow these steps to replicate the coloured cube pose estimation and pick & pla
 3. Spawn any cube to the robot workspace:
 
     ```sh
-    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield_gazebo" --urdf "BlueCube.urdf" --name "BlueCube" --x 0.6 --y 0.55 --z 0.95
-    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield_gazebo" --urdf "GreenCube.urdf" --name "GreenCube" --x 0.6 --y 0.55 --z 0.95
-    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield_gazebo" --urdf "RedCube.urdf" --name "RedCube" --x 0.6 --y 0.55 --z 0.95
-    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield_gazebo" --urdf "WhiteCube.urdf" --name "WhiteCube" --x 0.6 --y 0.55 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "BlueCube.urdf" --name "BlueCube" --x 0.6 --y 0.55 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "GreenCube.urdf" --name "GreenCube" --x 0.6 --y 0.55 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "RedCube.urdf" --name "RedCube" --x 0.6 --y 0.55 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "WhiteCube.urdf" --name "WhiteCube" --x 0.6 --y 0.55 --z 0.95
 
     # The ColouredCubes.pt detection models have been trained to detect blue, green, red and white cubes.
     # Feel free to manually move the cubes around in the simulation environment, the PositionEstimation node will detect them!

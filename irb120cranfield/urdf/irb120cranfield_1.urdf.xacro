@@ -33,28 +33,78 @@
 
 -->
 
-<sdf version="1.4">
+<robot name="irb120" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <world name="default">
+  <!-- PASS ARGUMENTS: -->
+  <xacro:arg name="bringup" default="false"/>
+  <xacro:property name="bringup" value="$(arg bringup)"/>
+  <xacro:arg name="robot_ip" default="0.0.0.0"/>
+  <xacro:property name="robot_ip" value="$(arg robot_ip)"/>
 
-    <!-- WORLD COMPONENTS: STANDARD -->
+  <xacro:arg name="EE" default="true"/>
+  <xacro:property name="EE" value="$(arg EE)"/>
+  <xacro:arg name="EE_name" default="none"/>
+  <xacro:property name="EE_name" value="$(arg EE_name)"/>
 
-    <gravity>0 0 -9.8</gravity>
+  <!-- Include XACRO-MACRO file of the IRB120: -->
+  <xacro:include filename="$(find ros2srrc_robots)/irb120/urdf/irb120_macro.urdf.xacro"/>	
+  <xacro:irb120 
+    bringup="${bringup}"
+    robot_ip="${robot_ip}"
+    EE="${EE}"
+    EE_name="${EE_name}"
+  />
 
-    <include>
-      <uri>model://ground_plane</uri>
-    </include>
+  <!-- Load ROS 2 Gazebo Plugin -->
+  <xacro:unless value="${bringup}">
+    
+    <gazebo>
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
 
-    <include>
-      <uri>model://sun</uri>
-    </include>
+        <!-- IRB120 Controller -->
+        <parameters>$(find ros2srrc_robots)/irb120/config/controller.yaml</parameters>
 
-    <scene>
-      <shadows>0</shadows>
-    </scene>
+      </plugin>
+    </gazebo>
 
-    <!-- GAZEBO PLUGINS: -->
-    <plugin name="gazebo_link_attacher" filename="libgazebo_link_attacher.so"/>
+  </xacro:unless>
 
-  </world>
-</sdf>
+  <!-- World: LINK -->
+  <link name="world"/>
+  
+  <!-- ABB IRB-120 ENCLOSURE -->
+  <link name="cell">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find irb120cranfield)/meshes/irb120enclosure/IRB120enclosure.dae" scale="1 1 1" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="file://$(find irb120cranfield)/meshes/irb120enclosure/IRB120enclosure.dae" scale="1 1 1" />
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1000.0"/>
+      <inertia ixx="500.0" ixy="500.0" ixz="500.0" iyy="500.0" iyz="500.0" izz="500.0" />
+    </inertial>
+  </link>
+
+  <!-- Robot Cell: FIXED JOINT -->
+  <joint name="world-cell-fixed" type="fixed">
+    <parent link="world"/>
+    <child link="cell"/>
+    <origin xyz="0.926 -0.124 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <!-- Robot+Cell JOINT -->
+  <joint name="cell-base_link-fixed" type="fixed">
+    <parent link="cell"/>
+    <child link="base_link"/>
+    <origin xyz="-0.6506 0.6489 0.8605" rpy="0.0 0.0 0.0" />
+  </joint>
+
+</robot>
