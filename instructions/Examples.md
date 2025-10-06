@@ -64,14 +64,14 @@ Once the environment has been launched, there are few operations that can be don
     ros2 run ros2srrc_execution ExecuteProgram.py package:=irb120cranfield program:=irb120_demo
     ```
 
-- Spawn objects into the GzSim Environment: The CAD and URDF files of the objects that are manipulated in our IRB120-Cranfield Robot's use-cases are stored in the irb120cranfield package. The objects can be spawned to the Simulation Environment using this command (more info [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/RobotOperation.md#extra-spawn-object-to-a-gazebo-environment)):
+- Spawn objects into the GzSim Environment: The CAD and SDF files of the objects that are manipulated in our IRB120-Cranfield Robot's use-cases are stored in the irb120cranfield package. The objects can be spawned to the Simulation Environment using this command (more info [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/RobotOperation.md#extra-spawn-object-to-a-gazebo-environment)):
 
     ```sh
     # Generic command:
-    ros2 run ros2srrc_execution SpawnObject.py --package "{}" --urdf "{}.urdf" --name "{}" --x {} --y {} --z {}
+    ros2 run ros2srrc_execution SpawnObject.py --package "{}" --sdf "{}.sdf" --name "{}" --x {} --y {} --z {}
 
     # Command to spawn the RED CUBE on top of the IRB120 enclosure:
-    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "RedCube.urdf" --name "RedCube" --x 0.6 --y 0.55 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --sdf "RedCube.sdf" --name "RedCube" --x 0.6 --y 0.55 --z 0.95
     ```
 
     Once the object has been spawned to the simulation environment, its pose can be checked with the following command (for more information, please visit [IFRA-Cranfield/IFRA_ObjectPose](https://github.com/IFRA-Cranfield/IFRA_ObjectPose)):
@@ -131,7 +131,7 @@ __Gazebo Simulation Environment__
 ros2 launch ros2srrc_launch moveit2.launch.py package:=irb120cranfield config:=irb120cranfield_2
 
 # 2. Spawn the cube (WhiteCube, RedCube, GreenCube, BlackCube or BlueCube) on top of the IRB120 enclosure:
-ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "RedCube.urdf" --name "RedCube" --x 0.60 --y 0.70 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --sdf "RedCube.sdf" --name "RedCube" --x 0.60 --y 0.70 --z 0.95
 
 # 3. Execute the Cube Pick&Place Robot Program:
 ros2 run ros2srrc_execution ExecuteProgram.py package:=irb120cranfield program:=CubePP_irb120_sim
@@ -186,10 +186,10 @@ Follow these steps to replicate the coloured cube pose estimation and pick & pla
 3. Spawn any cube to the robot workspace:
 
     ```sh
-    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "BlueCube.urdf" --name "BlueCube" --x 0.6 --y 0.55 --z 0.95
-    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "GreenCube.urdf" --name "GreenCube" --x 0.6 --y 0.55 --z 0.95
-    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "RedCube.urdf" --name "RedCube" --x 0.6 --y 0.55 --z 0.95
-    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --urdf "WhiteCube.urdf" --name "WhiteCube" --x 0.6 --y 0.55 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --sdf "BlueCube.sdf" --name "BlueCube" --x 0.6 --y 0.55 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --sdf "GreenCube.sdf" --name "GreenCube" --x 0.6 --y 0.55 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --sdf "RedCube.sdf" --name "RedCube" --x 0.6 --y 0.55 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "irb120cranfield" --sdf "WhiteCube.sdf" --name "WhiteCube" --x 0.6 --y 0.55 --z 0.95
 
     # The ColouredCubes.pt detection models have been trained to detect blue, green, red and white cubes.
     # Feel free to manually move the cubes around in the simulation environment, the PositionEstimation node will detect them!
