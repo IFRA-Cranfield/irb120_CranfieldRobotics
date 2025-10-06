@@ -166,7 +166,7 @@ def main(args=None):
     
     # END-EFFECTOR:
     if ENVIRONMENT == "gazebo":
-        ENDEFFECTOR = parallelGR(["RedCube", "BlueCube", "WhiteCube", "GreenCube"], "irb120", "EE_egp64")
+        ENDEFFECTOR = parallelGR()
     else:
         ENDEFFECTOR = SchunkGRIPPER()
 
@@ -272,7 +272,7 @@ def main(args=None):
     print("")
 
     if ENVIRONMENT == "gazebo":
-        RES = ENDEFFECTOR.CLOSE(25.0)
+        RES = ENDEFFECTOR.CLOSE(55.0)
     else:
         RES = ENDEFFECTOR.CLOSE()
 

@@ -23,7 +23,7 @@
 
       <origin xyz= "0.0 0.0 0.0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file://$(find irb120cranfield)/meshes/objects/${name}.dae"/>
+        <mesh filename="file://$(find irb120cranfield)/meshes/objects/BlueCube.dae"/>
       </geometry>
 
     </collision>
@@ -32,7 +32,7 @@
 
       <origin xyz= "0.0 0.0 0.0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file://$(find irb120cranfield)/meshes/objects/${name}.dae"/>
+        <mesh filename="file://$(find irb120cranfield)/meshes/objects/BlueCube.dae"/>
       </geometry>
 
     </visual>
