@@ -1,4 +1,4 @@
-<!-- 
+<!--
 # ===================================== COPYRIGHT ===================================== #
 #                                                                                       #
 #  IFRA (Intelligent Flexible Robotics and Assembly) Group, CRANFIELD UNIVERSITY        #
@@ -34,7 +34,7 @@
 
   README.md TEMPLATE obtined from:
       https://github.com/othneildrew/Best-README-Template
-      AUTHOR: OTHNEIL DREW 
+      AUTHOR: OTHNEIL DREW
 
 -->
 
@@ -103,7 +103,7 @@ Centre for Robotics and Assembly:
 - Facebook: https://www.facebook.com/cranfieldunirobotics/
 - YouTube: https://www.youtube.com/@CranfieldRobotics
 - LinkedIn: https://www.linkedin.com/company/cranfieldrobotics/
-- Website: https://www.cranfield.ac.uk/centres/centre-for-robotics-and-assembly 
+- Website: https://www.cranfield.ac.uk/centres/centre-for-robotics-and-assembly
 
 
 ### irb120_CranfieldRobotics Repository
@@ -117,8 +117,8 @@ The irb120_CranfieldRobotics repository contains a set of ROS 2 packages develop
 
 For detailed information on installation, usage, and requirements, please refer to the following documentation files available in this repository:
 
-- [Installation.md](https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/tree/humble/instructions/Installation.md): Instructions for setting up and installing the required dependencies.
-- [Examples.md](https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/tree/humble/instructions/Examples.md): Guidelines for launching the ros2srrc-based ROS 2 Robot Simulation and Control environment for our IRB120 Robot at Cranfield.
+- [Installation.md](https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/tree/humble-gzfortress/instructions/Installation.md): Instructions for setting up and installing the required dependencies.
+- [Examples.md](https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/tree/humble-gzfortress/instructions/Examples.md): Guidelines for launching the ros2srrc-based ROS 2 Robot Simulation and Control environment for our IRB120 Robot at Cranfield.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -130,7 +130,7 @@ For detailed information on installation, usage, and requirements, please refer 
   <br />
   Created on behalf of the IFRA Group at Cranfield University, United Kingdom
   <br />
-  E-mail: IFRA@cranfield.ac.uk 
+  E-mail: IFRA@cranfield.ac.uk
   <br />
   <br />
   Licensed under the Apache-2.0 License.
@@ -193,7 +193,7 @@ For detailed information on installation, usage, and requirements, please refer 
   <br />
   LinkedIn: https://www.linkedin.com/in/phil-webb-64283223/
   <br />
-  Profile: https://www.cranfield.ac.uk/people/professor-phil-webb-746415 
+  Profile: https://www.cranfield.ac.uk/people/professor-phil-webb-746415
   <br />
 </p>
 
