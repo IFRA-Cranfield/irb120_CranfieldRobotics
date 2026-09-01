@@ -41,7 +41,7 @@
   <xacro:arg name="robot_ip" default="0.0.0.0"/>
   <xacro:property name="robot_ip" value="$(arg robot_ip)"/>
 
-  <xacro:arg name="EE" default="true"/>
+  <xacro:arg name="EE" default="false"/>
   <xacro:property name="EE" value="$(arg EE)"/>
   <xacro:arg name="EE_name" default="none"/>
   <xacro:property name="EE_name" value="$(arg EE_name)"/>
