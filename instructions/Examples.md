@@ -24,7 +24,7 @@ ros2 launch ros2srrc_launch moveit2.launch.py package:=irb120cranfield config:=i
 ros2 launch ros2srrc_launch moveit2.launch.py package:=irb120cranfield config:=irb120cranfield_2
 ```
 
-Once the environment has been launched, there are few operations that can be done to interact with the robot. For more information, please have a look at this [link](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/RobotOperation.md).
+Once the environment has been launched, there are few operations that can be done to interact with the robot. For more information, please have a look at this [link](https://github.com/IFRA-Cranfield/ros2srrc/blob/humble/instructions/RobotOperation.md).
 
 - Robot Movement: 
 
@@ -57,14 +57,14 @@ Once the environment has been launched, there are few operations that can be don
     ros2 topic echo /Robpose
     ```
 
-- Execute a Robot Program: The programs for the IRB120-Cranfield Robot are stored inside the irb120cranfield ROS 2 Package, /programs folder. The following command is used to execute the programs (for more information, access this [link](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/ProgramExecution.md)):
+- Execute a Robot Program: The programs for the IRB120-Cranfield Robot are stored inside the irb120cranfield ROS 2 Package, /programs folder. The following command is used to execute the programs (for more information, access this [link](https://github.com/IFRA-Cranfield/ros2srrc/blob/humble/instructions/ProgramExecution.md)):
 
     ```sh
     # Example for the irb120_demo.yaml program:
     ros2 run ros2srrc_execution ExecuteProgram.py package:=irb120cranfield program:=irb120_demo
     ```
 
-- Spawn objects into the GzSim Environment: The CAD and URDF files of the objects that are manipulated in our IRB120-Cranfield Robot's use-cases are stored in the irb120cranfield package. The objects can be spawned to the Simulation Environment using this command (more info [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/RobotOperation.md#extra-spawn-object-to-a-gazebo-environment)):
+- Spawn objects into the GzSim Environment: The CAD and URDF files of the objects that are manipulated in our IRB120-Cranfield Robot's use-cases are stored in the irb120cranfield package. The objects can be spawned to the Simulation Environment using this command (more info [here](https://github.com/IFRA-Cranfield/ros2srrc/blob/humble/instructions/RobotOperation.md#extra-spawn-object-to-a-gazebo-environment)):
 
     ```sh
     # Generic command:
